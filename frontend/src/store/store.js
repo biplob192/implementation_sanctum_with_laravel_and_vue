@@ -25,6 +25,9 @@ const store = createStore({
     ],
     services: {},
   },
+  actions: {},
+  getters: {},
+  mutations: {},
 });
 
 export default store;
