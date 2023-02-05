@@ -4,18 +4,21 @@ import * as getters from "./getters";
 import * as mutations from "./mutations";
 import * as actions from "./actions";
 
-// Import Modules
-import sample from "./modules/sample";
 
 const store = createStore({
+  namespaced: true,
   state,
   getters,
   mutations,
   actions,
-
-  modules: {
-    sample,
-  },
 });
 
 export default store;
+
+// export default {
+//     namespaced: true,
+//     state,
+//     getters,
+//     mutations,
+//     actions
+// }

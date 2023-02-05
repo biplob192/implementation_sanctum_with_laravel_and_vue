@@ -1,4 +1,5 @@
 <script>
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 export default {
   props: {
     msg: String,
@@ -7,15 +8,26 @@ export default {
 
   data() {
     return {
-      data: this.$store.state.data,
-      user: this.$store.state.user,
-      books: this.$store.state.books,
+      // books: this.$store.state.books,
     };
   },
   computed: {
     studentCount() {
       return this.$store.getters.countStudents;
     },
+
+    // First method
+    // ...mapState("sample", {
+    //     data: (state) => state.data,
+    //   }),
+
+    // Second method
+    // ...mapState(['user']),
+    ...mapState({
+      user: 'user',
+      books: 'books',
+      data: state => state.sample.data,
+    }),
   },
 };
 </script>
@@ -23,8 +35,7 @@ export default {
 <template>
   <div>
     <h3>
-      You've successfully created a project with
-      <span style="color: orangered">{{ msg }}</span>
+      You've successfully created a project with <span style="color: orangered">{{ msg }}</span>
     </h3>
     <b>{{ data }}</b> from Test components.
 
